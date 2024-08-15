@@ -15,6 +15,7 @@ on:
     - '.editorconfig'
     branches:
     - master
+    - updates
   pull_request:
     paths-ignore:
     - 'docs/**'
