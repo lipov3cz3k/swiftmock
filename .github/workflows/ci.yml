@@ -57,12 +57,13 @@ jobs:
         - { python-version: "3.9", os: "macos-13" }
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
+        cache: pip
 
     - name: Get python path
       id: python-path
@@ -87,7 +88,7 @@ jobs:
         pipenv run coverage xml
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1.0.10
+      uses: codecov/codecov-action@v4.5.0
       with:
         file: ./coverage.xml
         env_vars: OS,PYTHON
